@@ -4,6 +4,8 @@ import 'package:todoey_flutter/models/task_data.dart';
 import 'package:todoey_flutter/widgets/task_tile.dart';
 
 class TasksList extends StatelessWidget {
+  const TasksList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(
@@ -15,12 +17,8 @@ class TasksList extends StatelessWidget {
             return TaskTile(
               taskTile: task.name,
               isChecked: task.isDone!,
-              checkboxCallback: (bool? checkboxState) {
-                taskData.updateTask(task);
-              },
-              longPressCallback: () {
-                taskData.deleteTask(task);
-              },
+              checkboxCallback: (bool? checkboxState) => taskData.updateTask(task),
+              longPressCallback: () => taskData.deleteTask(task),
             );
           },
         );

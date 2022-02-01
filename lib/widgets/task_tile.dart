@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoey_flutter/screens/add_task_screen.dart';
 
 class TaskTile extends StatelessWidget {
   final String taskTile;
@@ -7,12 +6,13 @@ class TaskTile extends StatelessWidget {
   final Function(bool?) checkboxCallback;
   final Function() longPressCallback;
 
-  TaskTile({
+  const TaskTile({
+    Key? key,
     required this.taskTile,
     required this.isChecked,
     required this.checkboxCallback,
     required this.longPressCallback,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
